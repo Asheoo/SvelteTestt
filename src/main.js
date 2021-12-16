@@ -1,6 +1,6 @@
-import App from './App.svelte'
+import Bilosta from './App.svelte'
 
-const app = new App({
+const app = new Bilosta({
   target: document.body,
 })
 

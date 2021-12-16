@@ -4,11 +4,12 @@
   import Card from './Card.svelte'
   import Button from './Button.svelte'
   import RatingSelect from './RatingSelect.svelte'
+  import Komponenta from './Komponenta.svelte'
 
   let text = ''
-  let rating = 10
+  let rating = 5
   let btnDisabled = true
-  let min = 10
+  let min = 5
   let message
 
   const handleSelect = e => rating = e.detail
@@ -38,25 +39,28 @@
       text = ''
     }
   }
+
 </script>
 
-
 <Card>
-  <header>
-    <h2>How would you rate your service with us?</h2>
-  </header>
-<form on:submit|preventDefault={handleSubmit}>
-  <RatingSelect on:rating-select={handleSelect} />
-  <div class="input-group">
-    <input type="text" on:input={handleInput} bind:value = {text} placeholder="Tell us something that keeps you coming back">
-    <Button disabled={btnDisabled} type="submit">Send</Button>
-  </div>
-  {#if message}
-    <div class="message">
-      {message}
+    <header>
+      <h2>How would you rate your service with us?</h2>
+    </header>
+    <Komponenta  />
+  <form on:submit|preventDefault={handleSubmit}>
+    <RatingSelect on:rating-select={handleSelect} />
+    <div class="input-group">
+      <input type="text" on:input={handleInput} bind:value={text} placeholder="Tell us something that keeps you coming back">
+      <Button disabled={btnDisabled} type="submit" style="secondary">
+        Sendic
+      </Button>
     </div>
-  {/if}
-</form>
+    {#if message}
+      <div class="message">
+        {message}
+      </div>
+    {/if}
+  </form>
 </Card>
 
 <style>
